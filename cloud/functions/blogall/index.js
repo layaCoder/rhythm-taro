@@ -8,6 +8,9 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
   return {
-    data:'this is blog all cloud function'
+    event,
+    openid: wxContext.OPENID,
+    appid: wxContext.APPID,
+    unionid: wxContext.UNIONID,
   }
 }
