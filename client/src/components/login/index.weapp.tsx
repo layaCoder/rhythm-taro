@@ -7,15 +7,19 @@ export default class Index extends Component {
     context: {}
   }
 
-  componentWillMount() {}
+  componentWillMount() { }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.getLogin()
 
-  componentWillUnmount() {}
+  }
 
-  componentDidShow() {}
+  componentWillUnmount() {
+  }
 
-  componentDidHide() {}
+  componentDidShow() { }
+
+  componentDidHide() { }
 
   getLogin = () => {
     Taro.cloud
@@ -36,6 +40,7 @@ export default class Index extends Component {
         data: {}
       })
       .then(res => {
+        console.log('blogall res ...>', res)
         this.setState({
           context: res.result
         })
@@ -46,7 +51,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <Button onClick={this.getLogin}>获取登录云函数</Button>
-        <Button onClick={this.getBlogAll}>test blog all</Button>
+        <Button onClick={this.getBlogAll}>blog all</Button>
         <Text>context：{JSON.stringify(this.state.context)}</Text>
       </View>
     )
